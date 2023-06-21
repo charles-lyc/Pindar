@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "XT60-PW-M")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/motion-cube/hw/kicad/footprint/XT/XT60-PW-M.kicad_sym")(options "")(descr ""))
+  (lib (name "FTMH-120-02")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/motion-cube/hw/kicad/footprint/FTMH-120-02/FTMH-120-02.kicad_sym")(options "")(descr ""))
+)

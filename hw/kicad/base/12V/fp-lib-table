@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "XT")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/motion-cube/hw/kicad/footprint/XT")(options "")(descr ""))
+)
