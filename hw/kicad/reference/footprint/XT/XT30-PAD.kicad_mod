@@ -1,0 +1,21 @@
+(footprint "XT30-PAD" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (descr "XT30PW-M")
+  (tags "Connector")
+  (attr through_hole)
+  (fp_text reference "J**" (at 0 0) (layer "F.SilkS") hide
+      (effects (font (size 1.27 1.27) (thickness 0.254)))
+    (tstamp 9111701c-44bf-4722-a467-d3831bacf615)
+  )
+  (fp_text value "XT30PWM" (at 0 0) (layer "F.SilkS") hide
+      (effects (font (size 1.27 1.27) (thickness 0.254)))
+    (tstamp 8eee5b96-e48b-425c-bc99-174793ada39d)
+  )
+  (pad "1" smd roundrect (at -2.5 5.912) (size 3 6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp 44d26b74-c088-4ee1-b9ed-48e13499598e))
+  (pad "2" smd roundrect (at 2.5 5.912) (size 3 6) (layers "F.Cu" "F.Paste" "F.Mask") (roundrect_rratio 0.25) (tstamp fe845f23-b7a0-42d1-bc6c-77231901649e))
+  (model "XT30PW-M.stp"
+    (offset (xyz 0 -1.759999964 2.559999904))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 -180))
+  )
+)

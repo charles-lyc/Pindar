@@ -34,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 0.0,
+          "height": 10.0,
+          "width": 5.0
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.2032
+          "min_clearance": 0.15239999999999998
         }
       },
       "diff_pair_dimensions": [
@@ -144,31 +144,31 @@
       ],
       "teardrop_parameters": [
         {
-          "td_curve_segcount": 0,
-          "td_height_ratio": 1.0,
+          "td_curve_segcount": 5,
+          "td_height_ratio": 0.6,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
           "td_target_name": "td_round_shape",
-          "td_width_to_size_filter_ratio": 0.9
+          "td_width_to_size_filter_ratio": 0.6
         },
         {
-          "td_curve_segcount": 0,
-          "td_height_ratio": 1.0,
+          "td_curve_segcount": 5,
+          "td_height_ratio": 0.6,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
           "td_target_name": "td_rect_shape",
-          "td_width_to_size_filter_ratio": 0.9
+          "td_width_to_size_filter_ratio": 0.6
         },
         {
-          "td_curve_segcount": 0,
-          "td_height_ratio": 1.0,
+          "td_curve_segcount": 5,
+          "td_height_ratio": 0.6,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
           "td_maxlen": 1.0,
           "td_target_name": "td_track_end",
-          "td_width_to_size_filter_ratio": 0.9
+          "td_width_to_size_filter_ratio": 0.6
         }
       ],
       "track_widths": [
