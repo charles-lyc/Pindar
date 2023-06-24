@@ -2111,6 +2111,9 @@
     (stroke (width 0.1) (type default)) (layer "Edge.Cuts") (tstamp fbb39835-c5c0-4e23-a5ec-5df04efd9a62))
   (gr_circle locked (center 75.72 73.22) (end 76.72 73.22)
     (stroke (width 0.15) (type default)) (fill none) (layer "User.1") (tstamp d65d161e-a8b7-4c6a-a71c-9c04bc1756ca))
+  (gr_text "Pindar v1.0 \nType BASE\nio v1.0" (at 54.1808 70.8832) (layer "F.SilkS") (tstamp 96e493aa-0937-44f8-86b9-2aa6f66ff4e6)
+    (effects (font (size 1 1) (thickness 0.15)) (justify left bottom))
+  )
 
   (segment (start 66.750266 60.5962) (end 57.5082 60.5962) (width 0.2032) (layer "F.Cu") (net 1) (tstamp 00d68225-6bb6-4767-a14f-f34123f2d489))
   (segment (start 57.0726 61.0318) (end 57.0726 62.1652) (width 0.2032) (layer "F.Cu") (net 1) (tstamp 060c31d2-1fff-4dba-8877-9af2466e9454))
