@@ -3,6 +3,7 @@
 
 # What is Pindar?
 Pindar是什么？它是遵循易用性、便携性、可扩展性的原则而设计的一套开发套件（硬件）。
+
 Pindar为了快速建立项目的硬件而生，是对大部分DIY项目的一次浅浅的解构和模块化。
 
 # Some details
@@ -15,6 +16,7 @@ Pindar为了快速建立项目的硬件而生，是对大部分DIY项目的一�
 
 # How to use it?
 S-N-A-P!
+
 仅仅是简单的把你需要的模块叠在一起，伴随一阵清脆的Click声（在我将来找到合适的接插件之后= =）就可以啦！
 
 # Run your code in CPU board
@@ -22,7 +24,9 @@ S-N-A-P!
 
 # What about next?
 如果你有自己的想法，可以将它实现成Pindar的兼容板，无论是type base、cpu、app等，也无论你用什么硬件EDA设计，只要基于这个template的板框和连接器设计就行。
+
 我自己也会不定期更新自己平时玩的一些app板（四轴、平衡车、LVGL LCD、全向轮、磁悬浮等等经典DIY项目），也考虑将Pindar的形态演变成slot插槽的形式。
+
 期待你我的新作品。😋
 
 # Other else
