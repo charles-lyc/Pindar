@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "PMW3360")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/Pindar/hw/kicad/reference/footprint/PMW3360")(options "")(descr ""))
+)
