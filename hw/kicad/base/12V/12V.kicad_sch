@@ -6717,7 +6717,7 @@
     (property "Value" "0" (at 109.855 47.752 90)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Resistor_SMD:R_01005_0402Metric" (at 109.855 51.943 90)
+    (property "Footprint" "Resistor_SMD:R_0603_1608Metric" (at 109.855 51.943 90)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 109.855 50.165 0)
