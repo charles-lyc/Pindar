@@ -64,8 +64,8 @@
       39,
       40
     ],
-    "visible_layers": "ff9ffff_ffffffff",
-    "zone_display_mode": 1
+    "visible_layers": "ff9ffcf_ffffffff",
+    "zone_display_mode": 0
   },
   "meta": {
     "filename": "io.kicad_prl",
