@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ICM-42688-P")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/Pindar/hw/kicad/reference/footprint/ICM-42688-P")(options "")(descr ""))
+  (lib (name "ESP32-S3-WROOM-1")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/Pindar/hw/kicad/reference/footprint/ESP32-S3-WROOM-1")(options "")(descr ""))
+)
