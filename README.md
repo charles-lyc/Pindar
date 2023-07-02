@@ -12,8 +12,16 @@ Pindar为了快速建立项目的硬件而生，是对平时常见小项目的�
 - type base：类似电脑主板，负责电源输出和管理
 - type cpu：负责计算
 - type app：实际项目的应用
+- 
+它提供了几种常见的功能接口：
+- adc
+- uart
+- i2c
+- spi
+- gpio
+- power: 3.3V 5.0V Vbatt
 
-开发工具是KiCad 7.
+我使用的开发工具是KiCad 7.
 
 # How to use it?
 S-N-A-P!
