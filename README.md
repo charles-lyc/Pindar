@@ -19,7 +19,7 @@ S-N-A-P!
 
 
 # Run your code
-如果你有自己的想法和一点点动手能力，可以将它实现成Pindar的type app板，无论你用什么硬件EDA设计，只要基于template的板框和连接器设计就行。
+如果你有自己的想法和一点点动手能力，可以将它实现成Pindar的type app板，无论你用什么硬件EDA设计，只要基于template的板框和连接器设计就行。剩下的电源、总线、io，Pindar都会为你提供支持。
 
 在安装好某个type app板后，你可以为它写几个驱动，让你的项目应用以task或者thread的形式运行在rtos上面。来完成一些工作。
 
