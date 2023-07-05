@@ -1,7 +1,7 @@
 {
   "board": {
     "active_layer": 0,
-    "active_layer_preset": "All Layers",
+    "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
@@ -19,7 +19,7 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -64,14 +64,39 @@
       39,
       40
     ],
-    "visible_layers": "fffffff_ffffffff",
-    "zone_display_mode": 1
+    "visible_layers": "ffcffff_ffffffff",
+    "zone_display_mode": 0
   },
   "meta": {
-    "filename": "dc_motor_x3.kicad_prl",
+    "filename": "power_16V.kicad_prl",
     "version": 3
   },
   "project": {
-    "files": []
+    "files": [
+      {
+        "name": "power_16V.kicad_pcb",
+        "open": false,
+        "window": {
+          "display": 1,
+          "maximized": true,
+          "pos_x": 2552,
+          "pos_y": -8,
+          "size_x": 2576,
+          "size_y": 1408
+        }
+      },
+      {
+        "name": "power_16V.kicad_sch",
+        "open": true,
+        "window": {
+          "display": 0,
+          "maximized": true,
+          "pos_x": -11,
+          "pos_y": -11,
+          "size_x": 2582,
+          "size_y": 1550
+        }
+      }
+    ]
   }
 }

@@ -35,8 +35,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 10.0,
-          "width": 5.0
+          "height": 2.032,
+          "width": 3.81
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.15239999999999998
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -405,7 +405,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "12V.kicad_pro",
+    "filename": "power_16V.kicad_pro",
     "version": 1
   },
   "net_settings": {

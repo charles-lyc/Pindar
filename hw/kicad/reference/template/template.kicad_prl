@@ -1,11 +1,11 @@
 {
   "board": {
     "active_layer": 0,
-    "active_layer_preset": "",
+    "active_layer_preset": "All Layers",
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
-    "high_contrast_mode": 0,
+    "high_contrast_mode": 1,
     "net_color_mode": 1,
     "opacity": {
       "images": 0.6,
@@ -19,7 +19,7 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": false,
+      "lockedItems": true,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -64,25 +64,25 @@
       39,
       40
     ],
-    "visible_layers": "ffcffcf_ffffffff",
+    "visible_layers": "fffffff_ffffffff",
     "zone_display_mode": 1
   },
   "meta": {
-    "filename": "pmw3360.kicad_prl",
+    "filename": "template.kicad_prl",
     "version": 3
   },
   "project": {
     "files": [
       {
-        "name": "pmw3360.kicad_pcb",
+        "name": "template.kicad_pcb",
         "open": false,
         "window": {
-          "display": 0,
-          "maximized": true,
-          "pos_x": -11,
-          "pos_y": -11,
-          "size_x": 2582,
-          "size_y": 1550
+          "display": 1,
+          "maximized": false,
+          "pos_x": 2330,
+          "pos_y": 72,
+          "size_x": 2576,
+          "size_y": 1408
         }
       }
     ]
