@@ -5,7 +5,7 @@
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
-    "high_contrast_mode": 0,
+    "high_contrast_mode": 1,
     "net_color_mode": 1,
     "opacity": {
       "images": 0.6,
@@ -64,7 +64,7 @@
       39,
       40
     ],
-    "visible_layers": "ffcffff_ffffffff",
+    "visible_layers": "ffcffcf_ffffffff",
     "zone_display_mode": 1
   },
   "meta": {
@@ -74,27 +74,15 @@
   "project": {
     "files": [
       {
-        "name": "esp32 s3.kicad_pcb",
-        "open": false,
-        "window": {
-          "display": 1,
-          "maximized": true,
-          "pos_x": 2552,
-          "pos_y": -8,
-          "size_x": 2576,
-          "size_y": 1408
-        }
-      },
-      {
         "name": "esp32 s3.kicad_sch",
-        "open": false,
+        "open": true,
         "window": {
-          "display": 1,
+          "display": 0,
           "maximized": true,
-          "pos_x": 2552,
-          "pos_y": -8,
-          "size_x": 2576,
-          "size_y": 1408
+          "pos_x": -11,
+          "pos_y": -11,
+          "size_x": 2582,
+          "size_y": 1550
         }
       }
     ]
