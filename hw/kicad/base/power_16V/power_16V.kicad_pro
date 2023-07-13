@@ -35,8 +35,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 10.0,
-          "width": 5.0
+          "height": 1.6,
+          "width": 3.5
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -405,7 +405,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "12V.kicad_pro",
+    "filename": "power_16V.kicad_pro",
     "version": 1
   },
   "net_settings": {
