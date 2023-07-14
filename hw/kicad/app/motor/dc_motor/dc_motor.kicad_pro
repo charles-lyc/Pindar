@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.17779999999999999
+          "min_clearance": 0.2032
         }
       },
       "diff_pair_dimensions": [
@@ -405,7 +405,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "dc_motor.kicad_pro",
+    "filename": "dc.kicad_pro",
     "version": 1
   },
   "net_settings": {

@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 31,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -19,7 +19,7 @@
       "footprints": true,
       "graphics": true,
       "keepouts": true,
-      "lockedItems": true,
+      "lockedItems": false,
       "otherItems": true,
       "pads": true,
       "text": true,
@@ -65,7 +65,7 @@
       40
     ],
     "visible_layers": "ffcffff_ffffffff",
-    "zone_display_mode": 0
+    "zone_display_mode": 1
   },
   "meta": {
     "filename": "power_16V.kicad_prl",
@@ -74,27 +74,27 @@
   "project": {
     "files": [
       {
+        "name": "power_16V.kicad_sch",
+        "open": false,
+        "window": {
+          "display": 0,
+          "maximized": false,
+          "pos_x": 1,
+          "pos_y": 1,
+          "size_x": 2558,
+          "size_y": 1526
+        }
+      },
+      {
         "name": "power_16V.kicad_pcb",
         "open": false,
         "window": {
           "display": 1,
-          "maximized": true,
-          "pos_x": 2552,
-          "pos_y": -8,
-          "size_x": 2576,
-          "size_y": 1408
-        }
-      },
-      {
-        "name": "power_16V.kicad_sch",
-        "open": true,
-        "window": {
-          "display": 0,
-          "maximized": true,
-          "pos_x": -11,
-          "pos_y": -11,
-          "size_x": 2582,
-          "size_y": 1550
+          "maximized": false,
+          "pos_x": 3833,
+          "pos_y": 0,
+          "size_x": 1294,
+          "size_y": 1399
         }
       }
     ]
