@@ -65,7 +65,7 @@
       40
     ],
     "visible_layers": "ffcffff_ffffffff",
-    "zone_display_mode": 1
+    "zone_display_mode": 0
   },
   "meta": {
     "filename": "power_16V.kicad_prl",
@@ -91,9 +91,9 @@
         "window": {
           "display": 1,
           "maximized": false,
-          "pos_x": 3833,
+          "pos_x": 3443,
           "pos_y": 0,
-          "size_x": 1294,
+          "size_x": 1684,
           "size_y": 1399
         }
       }
