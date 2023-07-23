@@ -77,24 +77,24 @@
         "name": "dc_motor.kicad_pcb",
         "open": false,
         "window": {
+          "display": 0,
+          "maximized": false,
+          "pos_x": 0,
+          "pos_y": 60,
+          "size_x": 2560,
+          "size_y": 1408
+        }
+      },
+      {
+        "name": "dc_motor.kicad_sch",
+        "open": false,
+        "window": {
           "display": 1,
           "maximized": true,
           "pos_x": 2552,
           "pos_y": -8,
           "size_x": 2576,
           "size_y": 1408
-        }
-      },
-      {
-        "name": "dc_motor.kicad_sch",
-        "open": true,
-        "window": {
-          "display": 0,
-          "maximized": false,
-          "pos_x": 1,
-          "pos_y": 1,
-          "size_x": 2558,
-          "size_y": 1526
         }
       }
     ]

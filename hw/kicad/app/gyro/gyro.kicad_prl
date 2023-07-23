@@ -5,7 +5,7 @@
     "auto_track_width": true,
     "hidden_netclasses": [],
     "hidden_nets": [],
-    "high_contrast_mode": 0,
+    "high_contrast_mode": 1,
     "net_color_mode": 1,
     "opacity": {
       "images": 0.6,
@@ -64,7 +64,7 @@
       39,
       40
     ],
-    "visible_layers": "fffffff_ffffffff",
+    "visible_layers": "fffffcf_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
@@ -83,6 +83,18 @@
           "pos_y": -8,
           "size_x": 2576,
           "size_y": 1408
+        }
+      },
+      {
+        "name": "gyro.kicad_sch",
+        "open": true,
+        "window": {
+          "display": 0,
+          "maximized": false,
+          "pos_x": 1,
+          "pos_y": 1,
+          "size_x": 2558,
+          "size_y": 1526
         }
       }
     ]
