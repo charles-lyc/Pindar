@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 31,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -64,37 +64,25 @@
       39,
       40
     ],
-    "visible_layers": "ffcffff_ffffffff",
+    "visible_layers": "fffffff_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "power_16V.kicad_prl",
+    "filename": "gyro.kicad_prl",
     "version": 3
   },
   "project": {
     "files": [
       {
-        "name": "power_16V.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 0,
-          "maximized": false,
-          "pos_x": 1,
-          "pos_y": 1,
-          "size_x": 2558,
-          "size_y": 1526
-        }
-      },
-      {
-        "name": "power_16V.kicad_pcb",
+        "name": "gyro.kicad_pcb",
         "open": false,
         "window": {
           "display": 1,
-          "maximized": false,
-          "pos_x": 3443,
-          "pos_y": 0,
-          "size_x": 1684,
-          "size_y": 1399
+          "maximized": true,
+          "pos_x": 2552,
+          "pos_y": -8,
+          "size_x": 2576,
+          "size_y": 1408
         }
       }
     ]
