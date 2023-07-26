@@ -64,8 +64,8 @@
       39,
       40
     ],
-    "visible_layers": "ffcffff_ffffffff",
-    "zone_display_mode": 0
+    "visible_layers": "ffcffef_ffffffff",
+    "zone_display_mode": 1
   },
   "meta": {
     "filename": "esp32 s3.kicad_prl",
@@ -75,7 +75,7 @@
     "files": [
       {
         "name": "esp32 s3.kicad_pcb",
-        "open": true,
+        "open": false,
         "window": {
           "display": 0,
           "maximized": true,
