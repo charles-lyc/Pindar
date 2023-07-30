@@ -6870,7 +6870,7 @@
     (property "Value" "USB_B_Micro" (at 54.61 46.99 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Connector_USB:USB_Micro-B_Wuerth_629105150521" (at 58.42 58.42 0)
+    (property "Footprint" "USB_Micro-B_YouCee:USB_Micro-B_YouCee" (at 58.42 58.42 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 58.42 58.42 0)
