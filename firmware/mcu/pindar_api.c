@@ -1,5 +1,12 @@
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_system.h"
+#include "esp_log.h"
+#include "driver/uart.h"
+#include "string.h"
+#include "driver/gpio.h"
 
-#include "pindar.h"
+#include "pindar_config.h"
 
 int pindar_uart_open(struct pindar_uart *uart)
 {
@@ -42,4 +49,3 @@ int pindar_uart_close(struct pindar_uart *uart)
 {
     return 0;
 }
-
