@@ -90,11 +90,11 @@
         "open": true,
         "window": {
           "display": 0,
-          "maximized": false,
-          "pos_x": 1,
-          "pos_y": 1,
-          "size_x": 2558,
-          "size_y": 1526
+          "maximized": true,
+          "pos_x": -11,
+          "pos_y": -11,
+          "size_x": 2582,
+          "size_y": 1550
         }
       }
     ]

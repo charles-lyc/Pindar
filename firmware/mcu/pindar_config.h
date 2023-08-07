@@ -40,3 +40,11 @@
 #define PINDAR_GPIO_11 10
 #define PINDAR_GPIO_12 11
 
+enum IMU_Sensor
+{
+    NONE,
+    ICM42688,
+    BMI088,
+    ST
+};
+#define PINDAR_IMU_SENSOR ICM42688
