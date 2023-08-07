@@ -1,0 +1,17 @@
+{
+    "idf.adapterTargetName": "esp32s3",
+    "idf.openOcdConfigs": [
+        "interface/ftdi/esp32_devkitj_v1.cfg",
+        "target/esp32s3.cfg"
+    ],
+    "files.associations": {
+        "string.h": "c",
+        "spi_master.h": "c",
+        "imu_sensor_interface.h": "c",
+        "semphr.h": "c",
+        "sdkconfig.h": "c",
+        "freertos.h": "c"
+    },
+    "idf.flashType": "UART",
+    "idf.portWin": "COM5"
+}
