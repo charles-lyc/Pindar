@@ -1,3 +1,6 @@
+# esp32
+firmware/build/
+
 # Prerequisites
 *.d
 
@@ -30,6 +33,3 @@
 *.exe
 *.out
 *.app
-
-# esp32
-firmware/build/
