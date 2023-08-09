@@ -32,4 +32,4 @@
 *.app
 
 # esp32
-firmware/build
+firmware/build/
