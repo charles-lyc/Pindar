@@ -1,0 +1,7 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+C1,CP_EIA-3216-12_Kemet-S,1,Capacitor_Tantalum_SMD,
+J1,PinHeader_2x20_P1.27mm_Vertical_SMD,1,TOP,
+J2,PinHeader_2x20_P1.27mm_Vertical_SMD,1,BUTTOM,
+J3,ADIS16460,1,ADIS16460*,CLM-107-02
+P1,JST-GHS-1.25-BM08B,1,BM08B-GHS-TBT(LF)(SN)(N),
+"R1, R2",0805,2,0,
