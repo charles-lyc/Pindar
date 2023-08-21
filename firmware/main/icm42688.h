@@ -6,21 +6,26 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-extern "C"
+#include "spi.h"
+#include "imu_sensor_interface.h"
+
+class ICM42688 : public IMU_Interface
 {
+private:
+    SPI_Interface *interface = nullptr;
 
-    /**
-     * @brief init
-     * @return 0: success; -1: fail
-     */
-    int icm42688_init(struct imu_sensor_interface *interface);
+public:
+    ICM42688(SPI_Interface *spi_interface)
+    {
+        interface = spi_interface;
+        initialize();
+    }
 
-    /**
-     * @brief read icm42688 raw data
-     * @param timestamp
-     * @param gyro
-     * @param acc
-     * @return 0: success; -1: fail
-     */
-    int icm42688_read(struct imu_sensor_interface *interface, TickType_t *timestamp, int32_t *gyro, int32_t *accel, int32_t *temp);
-}
+    ~ICM42688()
+    {
+        interface = nullptr;
+    }
+
+    int initialize() override;
+    int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temp) override;
+};
