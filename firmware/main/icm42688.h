@@ -15,16 +15,8 @@ private:
     SPI_Interface *interface = nullptr;
 
 public:
-    ICM42688(SPI_Interface *spi_interface)
-    {
-        interface = spi_interface;
-        initialize();
-    }
-
-    ~ICM42688()
-    {
-        interface = nullptr;
-    }
+    ICM42688(SPI_Interface *spi_interface);
+    ~ICM42688();
 
     int initialize() override;
     int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temp) override;

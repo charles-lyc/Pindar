@@ -17,7 +17,7 @@ private:
     spi_device_handle_t dev;
 
 public:
-    enum RW
+    static enum RW
     {
         READ,
         WRITE
@@ -82,8 +82,6 @@ public:
             .flags = 0,
             .cmd = 0,
             .addr = 0,
-            .length = len,
-            .rxlength = len,
             .user = nullptr,
             .tx_buffer = tx_data,
             .rx_buffer = rx_data,
@@ -91,10 +89,14 @@ public:
 
         if (rw == READ)
         {
+            .length = len,
+            .rxlength = len,     
             tx_data[0] |= 0x80;
         }
         else
         {
+            .length = len,
+            .rxlength = len,     
         }
 
         ret = spi_device_polling_transmit(dev, &t);
