@@ -57,7 +57,7 @@ static uint8_t reg_table[] = {
     //{ACCEL_CONFIG1}
 };
 
-ICM42688(SPI_Interface *spi_interface)
+ICM42688::ICM42688(SPI_Interface *spi_interface)
 {
     interface = spi_interface;
 
@@ -65,7 +65,7 @@ ICM42688(SPI_Interface *spi_interface)
 
 }
 
-~ICM42688()
+ICM42688::~ICM42688()
 {
     interface = nullptr;
 }

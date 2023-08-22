@@ -12,11 +12,11 @@
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
     icm_42688 = new ICM42688(spi2_handle);
-    if (icm_42688.probe())
+    if (icm_42688->probe())
     {
-        throw std::invalid_argument("Value must be positive");
+        // throw std::invalid_argument("Value must be positive");
     }
-    icm_42688.initialize();
+    icm_42688->initialize();
     
     // imu_module = new IMU_Module(icm_42688);
     // gpio_intr_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);

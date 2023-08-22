@@ -18,6 +18,7 @@ public:
     ICM42688(SPI_Interface *spi_interface);
     ~ICM42688();
 
+    int probe();
     int initialize() override;
     int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temp) override;
 };

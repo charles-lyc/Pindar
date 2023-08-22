@@ -15,7 +15,7 @@ class Pindar
 {
 public:
     // on board imu bus and gpio
-    Pindar());
+    Pindar();
     ~Pindar();
 
     SPI_Interface *spi2_handle = nullptr;
