@@ -57,21 +57,40 @@ static uint8_t reg_table[] = {
     //{ACCEL_CONFIG1}
 };
 
-int ICM42688::initialize()
+ICM42688(SPI_Interface *spi_interface)
+{
+    interface = spi_interface;
+
+    // config spi bus mode, baudrate .etc
+
+}
+
+~ICM42688()
+{
+    interface = nullptr;
+}
+
+int ICM42688::probe()
 {
     uint8_t tx[2] = {0};
     uint8_t rx[2] = {0};
 
-    // config spi bus mode, baudrate .etc
-
     // probe
     tx[0] = WHO_AM_I;
-    interface->bus_transfer(interface->READ, tx, rx, 2);
+    interface->bus_transfer(SPI_Interface::READ, tx, rx, 2);
     if (rx[1] != 0x47)
     {
-        ESP_LOGE("IMU", "sensor not found");
+        ESP_LOGE("ICM42688", "probe fail");
         return -1;
     }
+
+    return 0;
+}
+
+int ICM42688::initialize()
+{
+    uint8_t tx[2] = {0};
+    uint8_t rx[2] = {0};
 
     // config sensor registers
     uint8_t *p_table = reg_table;
@@ -79,7 +98,7 @@ int ICM42688::initialize()
     {
         tx[0] = *p_table++;
         tx[1] = *p_table++;
-        interface->bus_transfer(interface->WRITE, tx, rx, 2);
+        interface->bus_transfer(SPI_Interface::WRITE, tx, rx, 2);
         vTaskDelay(1 / portTICK_PERIOD_MS);
 
         if (*p_table == DELAY_MS)
@@ -89,7 +108,7 @@ int ICM42688::initialize()
         }
     }
 
-    // // customize
+    // customize
     // if (set_output_data_rate(interface->output_data_rate))
     // {
     //     ESP_LOGE("IMU", "set_output_data_rate failed");
@@ -111,7 +130,7 @@ int ICM42688::read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temp)
     uint8_t tx[2] = {0};
     uint8_t rx[14] = {0};
 
-    interface->bus_transfer(interface->READ, tx, rx, 14);
+    interface->bus_transfer(SPI_Interface::READ, tx, rx, 14);
 
     temp[0] = (int16_t)rx[1] << 8 | rx[0];
     gyro[0] = (int16_t)rx[3] << 8 | rx[2];

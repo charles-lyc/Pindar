@@ -14,6 +14,8 @@
 // 不需要给demo app注入接口，本项目开放给app所有的底层，适合直接由这些app自行选择和配置驱动
 extern "C" void app_main(void)
 {
+    try{
+
     // demo: imu sensor vibration scanning test
     IMU_Sensor_Vibr_Test *demo = new IMU_Sensor_Vibr_Test();
 
@@ -31,4 +33,7 @@ extern "C" void app_main(void)
 
     // flight controller
     // demo_fc();
+    } catch (const std::exception& e){
+        std::cerr << "Exception caught: " << e.what() << std::endl;
+    }
 }
