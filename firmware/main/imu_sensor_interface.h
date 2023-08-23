@@ -1,5 +1,4 @@
 
-
 #pragma once
 
 #include <stdint.h>
@@ -18,6 +17,7 @@ class IMU_Interface
 public:
     virtual ~IMU_Interface() {} // 确保能调用派生类的析构，又不至于在没有派生析构时没有析构函数导致奔溃
 
+    virtual int probe() { return -1; }
     virtual int initialize() { return -1; }
     virtual int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temperature) { return -1; }
     virtual int read_raw_data(int32_t *gyro, int32_t *accel, int32_t *temperature) { return -1; }
