@@ -58,7 +58,7 @@ void IMU_Module::process_task(void *pvParameters)
         if (xSemaphoreTake(frame_event, portMAX_DELAY) == pdTRUE)
         {
             // ll read
-            // if (icm42688_read(&interface.spi_handle, gyro_raw, accel_raw, temperature_raw))
+            interface->read_raw_data(gyro_raw, accel_raw, temperature_raw)
             {
                 ESP_LOGE("IMU Module", "read failed");
                 continue;

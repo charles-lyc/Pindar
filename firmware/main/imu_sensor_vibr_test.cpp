@@ -11,30 +11,58 @@
 
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
-    icm_42688 = new ICM42688(spi2_handle);
+    icm_42688 = new ICM42688(spi2_bus);
     if (icm_42688->probe())
     {
         // throw std::invalid_argument("Value must be positive");
     }
     icm_42688->initialize();
     
-    // imu_module = new IMU_Module(icm_42688);
-    // gpio_intr_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
+    imu_module = new IMU_Module(icm_42688);
+    gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
-    // struct dc_motor_interface motor_interface = {
-    //     .motor_pin_1 = PINDAR_GPIO_1,
-    //     .motor_pin_2 = PINDAR_GPIO_2,
-    //     .encoder_pin = PINDAR_GPIO_9,
-    // };
-    // motor = new DC_Motor(motor_interface);
+    dc_module = new DC_Motor_Module(gpio_1,gpio_2);
 
-    // xTaskCreate(scan_task, "scan_task", 4096, NULL, 5, NULL);
-    // xTaskCreate(record_task, "record_task", 4096, NULL, 5, NULL);
+    xTaskCreate(scan_task_static, "scan_task", 4096, this, 5, NULL);
+    xTaskCreate(record_task_static, "record_task", 4096, this, 5, NULL);
 }
 
 IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 {
 }
+
+
+void IMU_Sensor_Vibr_Test::scan_task(void *pvParameters)
+{
+    dc_module.set_duty_cycle(50.0);
+
+    while (true)
+    {
+        for (size_t freq = 1 * 1000; freq < 20 * 1000; freq++)
+        {
+            dc_module.set_frequency(freq);
+            vTaskDelay(1 / portTICK_PERIOD_MS);
+        }
+    }
+}
+
+void IMU_Sensor_Vibr_Test::record_task(void *pvParameters)
+{
+    while (true)
+    {
+        // read and transfer to serial port
+        interface->read_raw_data(datapack.gyro_raw, datapack.accel_raw, &datapack.temp);
+
+        datapack.header = 0xA5;
+        datapack.timestamp = GetTick();
+        datapack.crc = crc();
+
+        serial1.transmit(&datapack);
+
+        vTaskDelay(1 / portTICK_PERIOD_MS);
+    }
+}
+
 
 // 方法一：使用静态中间函数并传递实例
 // 方法二：使用std::bind
@@ -83,28 +111,3 @@ IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 // imu_frame_intr->set_callback([imu_module](void *param)
 //                              { static_cast<IMU_Module *>(param)->frame_event_isr(param); },
 //                              nullptr);
-int IMU_Sensor_Vibr_Test::demo_imu_sensor_vibration_scan(void)
-{
-
-
-    return 0;
-}
-
-// void scan_task(void *pvParameters)
-// {
-//     motor.set_duty_cycle(50.0);
-
-//     while (true)
-//     {
-//         for (size_t freq = 1 * 1000; freq < 20 * 1000; freq++)
-//         {
-//             motor_1.set_frequency(freq);
-//             vTaskDelay(1 / portTICK_PERIOD_MS);
-//         }
-//     }
-// }
-
-// void record_task(void *pvParameters)
-// {
-//     imu.get_gyro_x();
-// }
