@@ -34,10 +34,10 @@ private:
     int read(int16_t *gyro, int16_t *accel, int16_t *temp);
 };
 
-class GPIOInterrupt
+class GPIO_Interrupt
 {
 public:
-    GPIOInterrupt(gpio_num_t pin)
+    GPIO_Interrupt(gpio_num_t pin)
     {
         gpio_config_t io_conf = {
             .pin_bit_mask = (1ULL << pin),
@@ -51,7 +51,7 @@ public:
         gpio_install_isr_service(ESP_INTR_FLAG_LEVEL3);
     }
 
-    ~GPIOInterrupt()
+    ~GPIO_Interrupt()
     {
         gpio_isr_handler_remove(pin);
     }

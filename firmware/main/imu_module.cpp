@@ -15,8 +15,10 @@ IMU_Module::IMU_Module(IMU_Interface *itf)
 {
     interface = itf;
 
-    // esp_err_t ret;
-
+    if (interface->probe())
+    {
+        // throw std::invalid_argument("Value must be positive");
+    }
     interface->initialize();
 
     // create shared memory in iram
@@ -58,7 +60,7 @@ void IMU_Module::process_task(void *pvParameters)
         if (xSemaphoreTake(frame_event, portMAX_DELAY) == pdTRUE)
         {
             // ll read
-            // if (icm42688_read(&interface.spi_handle, gyro_raw, accel_raw, temperature_raw))
+            interface->read_raw_data(gyro_raw, accel_raw, temperature_raw);
             {
                 ESP_LOGE("IMU Module", "read failed");
                 continue;

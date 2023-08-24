@@ -22,7 +22,7 @@ extern "C" void app_main(void)
 		IMU_Sensor_Vibr_Test *demo = new IMU_Sensor_Vibr_Test();
 
 		// 4WD mechanical wheal
-		// demo_4wd_mechanical_wheels();
+		// MecanumWhealDrive *demo = new MecanumWhealDrive();
 
 		// 3WD omni wheels
 		// demo_3wd_omni_wheels();
