@@ -7,24 +7,27 @@
 #include "esp_spiffs.h"
 
 #include "pindar_config.h"
+#include "pindar.h"
 #include "imu_sensor_vibr_test.h"
 
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
-    // exteral imu sensor
-    icm_42688 = new ICM42688(spi2_bus);    
-    imu_module = new IMU_Module(icm_42688);
-    gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
+	// exteral imu sensor
+	icm_42688 = new ICM42688(spi2_bus);
+	imu_module = new IMU_Module(icm_42688);
+	gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
-    // icm_42688 = new ICM42688(spi2_bus);    
-    // imu_module = new IMU_Module(icm_42688);  // timer.set_frequency(1000);
-    // timer.set_callback(&imu_module->frame_event_isr_static, &imu_module);
+	// icm_42688 = new ICM42688(spi2_bus);
+	// imu_module = new IMU_Module(icm_42688);  // timer.set_frequency(1000);
+	// timer.set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
-    // dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
-    // dc_module = new DC_Motor_Module(dc_motor);
+	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
+	// dc_module = new DC_Motor_Module(dc_motor);
 
-    xTaskCreate(scan_task_static, "scan_task", 4096, this, 5, NULL);
-    xTaskCreate(record_task_static, "record_task", 4096, this, 5, NULL);
+	xTaskCreate(scan_task_static, "scan_task", 4096, this, 5, NULL);
+	xTaskCreate(record_task_static, "record_task", 4096, this, 5, NULL);
+
+	CPU_Monitor::get_instance()->start();
 }
 
 IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
@@ -34,33 +37,30 @@ IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 
 void IMU_Sensor_Vibr_Test::scan_task(void *pvParameters)
 {
-    // dc_module.set_duty_cycle(0.5);
+	// dc_module.set_duty_cycle(0.5);
 
-    while (true)
-    {
-        for (size_t freq = 1 * 1000; freq < 20 * 1000; freq++)
-        {
-            // dc_module.set_frequency(freq);
-            vTaskDelay(1 / portTICK_PERIOD_MS);
-        }
-    }
+	while (true) {
+		for (size_t freq = 1 * 1000; freq < 20 * 1000; freq++) {
+			// dc_module.set_frequency(freq);
+			vTaskDelay(1 / portTICK_PERIOD_MS);
+		}
+	}
 }
 
 void IMU_Sensor_Vibr_Test::record_task(void *pvParameters)
 {
-    while (true)
-    {
-        // read and transfer to serial port
-        // interface->read_raw_data(datapack.gyro_raw, datapack.accel_raw, &datapack.temp);
+	while (true) {
+		// read and transfer to serial port
+		// interface->read_raw_data(datapack.gyro_raw, datapack.accel_raw, &datapack.temp);
 
-        // datapack.header = 0xA5;
-        // datapack.timestamp = GetTick();
-        // datapack.crc = crc();
+		// datapack.header = 0xA5;
+		// datapack.timestamp = GetTick();
+		// datapack.crc = crc();
 
-        // serial1.transmit(&datapack);
+		// serial1.transmit(&datapack);
 
-        vTaskDelay(1 / portTICK_PERIOD_MS);
-    }
+		vTaskDelay(1 / portTICK_PERIOD_MS);
+	}
 }
 
 

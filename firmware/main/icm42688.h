@@ -20,5 +20,5 @@ public:
 
     int probe()override;
     int initialize() override;
-    int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temp) override;
+    int read_raw_data(int32_t *gyro, int32_t *accel, int16_t *temp) override;
 };

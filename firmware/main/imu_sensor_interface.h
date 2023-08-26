@@ -19,8 +19,7 @@ public:
 
     virtual int probe() { return -1; }
     virtual int initialize() { return -1; }
-    virtual int read_raw_data(int16_t *gyro, int16_t *accel, int16_t *temperature) { return -1; }
-    virtual int read_raw_data(int32_t *gyro, int32_t *accel, int32_t *temperature) { return -1; }
+    virtual int read_raw_data(int32_t *gyro, int32_t *accel, int16_t *temperature) { return -1; }
     virtual int set_data_rate(int data_rate) { return -1; }
     virtual int set_gyro_full_scale(int gyro_full_scale) { return -1; }
     virtual int set_accel_full_scale(int accel_full_scale) { return -1; }
