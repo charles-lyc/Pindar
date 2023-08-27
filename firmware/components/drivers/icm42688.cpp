@@ -13,7 +13,6 @@
 #include "esp_log.h"
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spi_flash.h"
 
 #include "icm42688.h"
 #include "spi.h"

@@ -13,13 +13,9 @@
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
 	// exteral imu sensor
-	icm_42688 = new ICM42688(spi2_bus);
+	icm_42688 = new ICM42688(spi3_bus);
 	imu_module = new IMU_Module(icm_42688);
-	gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
-
-	// icm_42688 = new ICM42688(spi2_bus);
-	// imu_module = new IMU_Module(icm_42688);  // timer.set_frequency(1000);
-	// timer.set_callback(&imu_module->frame_event_isr_static, &imu_module);
+	// gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
 	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
 	// dc_module = new DC_Motor_Module(dc_motor);
@@ -27,7 +23,7 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 	xTaskCreate(scan_task_static, "scan_task", 4096, this, 5, NULL);
 	xTaskCreate(record_task_static, "record_task", 4096, this, 5, NULL);
 
-	CPU_Monitor::get_instance()->start();
+	// CPU_Monitor::get_instance()->start();
 }
 
 IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
