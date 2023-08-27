@@ -4,7 +4,7 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 
-#include "imu_sensor_interface.h"
+#include "drivers/imu_sensor_interface.h"
 
 struct quaternion {
 	float w;

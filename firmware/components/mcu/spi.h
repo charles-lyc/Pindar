@@ -4,10 +4,6 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-#include "esp_system.h"
-#include "esp_log.h"
-#include "esp_spiffs.h"
-
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 

@@ -4,13 +4,8 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-#include "esp_system.h"
-#include "esp_log.h"
-#include "esp_spiffs.h"
-
-#include "cpu_monitor.h"
-#include "spi.h"
-#include "gpio_intr.h"
+#include "mcu/spi.h"
+#include "mcu/gpio_intr.h"
 
 class Pindar {
 public:

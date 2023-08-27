@@ -1,3 +1,3 @@
 idf_component_register(SRCS "imu_module.cpp"
-                    INCLUDE_DIRS "."
-                    REQUIRES "")
+                    INCLUDE_DIRS "." "../" "../../"
+                    REQUIRES nvs_flash)

@@ -4,11 +4,9 @@
 
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
 
-#include "pindar_config.h"
+#include "main/pindar_config.h"
 #include "imu_module.h"
-#include "imu_sensor_interface.h"
 #include "param.h"
 
 IMU_Module::IMU_Module(IMU_Interface *itf)

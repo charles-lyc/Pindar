@@ -6,7 +6,6 @@
 
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
 
 #include "pindar.h"
 #include "imu_module.h"

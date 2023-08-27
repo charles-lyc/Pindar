@@ -1,2 +1,4 @@
 idf_component_register(SRCS 
-                    INCLUDE_DIRS ".")
+                    INCLUDE_DIRS "."
+                    REQUIRES )
+

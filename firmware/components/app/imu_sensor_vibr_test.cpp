@@ -4,9 +4,7 @@
 
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
 
-#include "pindar_config.h"
 #include "pindar.h"
 #include "imu_sensor_vibr_test.h"
 
