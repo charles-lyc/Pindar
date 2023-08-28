@@ -7,7 +7,7 @@
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
 
-class SPI_Interface {
+class SPI_Bus {
 private:
 	spi_device_handle_t handle;
 
@@ -17,7 +17,7 @@ public:
 		WRITE
 	};
 
-	SPI_Interface(spi_host_device_t host_id, gpio_num_t cs, gpio_num_t sclk, gpio_num_t mosi, gpio_num_t miso, uint8_t spi_mode, int freq)
+	SPI_Bus(spi_host_device_t host_id, gpio_num_t cs, gpio_num_t sclk, gpio_num_t mosi, gpio_num_t miso, uint8_t spi_mode, int freq)
 	{
 		spi_bus_config_t buscfg = {
 			.mosi_io_num = mosi,
@@ -65,7 +65,7 @@ public:
 		}
 	};
 
-	~SPI_Interface()
+	~SPI_Bus()
 	{
 		// spi_bus_remove_device(handle);
 		// spi_bus_free(host_id);

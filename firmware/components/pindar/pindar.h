@@ -5,7 +5,7 @@
 #include "freertos/semphr.h"
 
 #include "spi.h"
-#include "gpio_intr.h"
+#include "gpio_interrupt.h"
 
 class Pindar {
 private:
@@ -17,8 +17,8 @@ public:
 	// SerialPort *serial1= nullptr;
 	// SerialPort *serial2= nullptr;
 
-	SPI_Interface *spi2_bus = nullptr;
-	SPI_Interface *spi3_bus = nullptr;
+	SPI_Bus *spi2_bus = nullptr;
+	SPI_Bus *spi3_bus = nullptr;
 	// I2C_Interface *i2c_bus = nullptr;
 	GPIO_Interrupt *gpio_imu = nullptr;
 
