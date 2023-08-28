@@ -6,7 +6,6 @@
 
 #include "esp_system.h"
 #include "esp_log.h"
-#include "esp_spiffs.h"
 
 #include "pindar.h"
 #include "imu_module.h"
@@ -26,6 +25,7 @@ private:
     } datapack;
 
     ICM42688 *icm_42688;
+    ICM42688 *icm_42688_external;
     IMU_Module *imu_module;
     // DC_Motor *dc_motor;
     // DC_Motor_Module *dc_motor_module;

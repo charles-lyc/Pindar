@@ -9,7 +9,8 @@
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
                 "${workspaceFolder}/**",
-                "C:/Espressif/frameworks/esp-idf-v4.4.4/components/freertos/include"
+                "C:/Espressif/frameworks/esp-idf-v4.4.4/components/freertos/include",
+                "${workspaceFolder}/components/mcu"
             ],
             "browse": {
                 "path": [

@@ -77,12 +77,12 @@
         "name": "esp32 s3.kicad_sch",
         "open": false,
         "window": {
-          "display": 0,
+          "display": 1,
           "maximized": true,
-          "pos_x": -11,
-          "pos_y": -11,
-          "size_x": 2582,
-          "size_y": 1550
+          "pos_x": 2552,
+          "pos_y": -8,
+          "size_x": 2576,
+          "size_y": 1408
         }
       }
     ]
