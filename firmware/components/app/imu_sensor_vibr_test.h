@@ -24,7 +24,6 @@ private:
         uint8_t crc;
     } datapack;
 
-    ICM42688 *icm_42688;
     ICM42688 *icm_42688_external;
     IMU_Module *imu_module;
     // DC_Motor *dc_motor;

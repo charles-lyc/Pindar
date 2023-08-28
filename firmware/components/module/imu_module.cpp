@@ -5,7 +5,6 @@
 #include "esp_system.h"
 #include "esp_log.h"
 
-#include "main/pindar_config.h"
 #include "imu_module.h"
 #include "param.h"
 
@@ -45,7 +44,7 @@ IMU_Module::~IMU_Module()
 void IMU_Module::frame_event_isr(void *arg)
 {
 	timestamp = xTaskGetTickCountFromISR();
-	ESP_LOGI("IMU Module", "timestamp: %d", timestamp);
+	// ESP_LOGI("IMU Module", "timestamp: %d", (uint32_t)timestamp);
 	xSemaphoreGiveFromISR(frame_event, NULL);
 }
 

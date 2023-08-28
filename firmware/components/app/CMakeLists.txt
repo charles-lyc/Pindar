@@ -1,3 +1,4 @@
-idf_component_register(SRCS "imu_sensor_vibr_test.cpp"
-                    INCLUDE_DIRS "." "../../main"
-                    REQUIRES )
+file(GLOB_RECURSE SOURCES *.c *.cpp)
+idf_component_register(SRCS ${SOURCES}
+                    INCLUDE_DIRS "."
+                    REQUIRES module pindar drivers)

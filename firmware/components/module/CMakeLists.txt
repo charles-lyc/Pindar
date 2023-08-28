@@ -1,3 +1,4 @@
-idf_component_register(SRCS "imu_module.cpp"
-                    INCLUDE_DIRS "." "../" "../../"
-                    REQUIRES nvs_flash)
+file(GLOB_RECURSE SOURCES *.c *.cpp)
+idf_component_register(SRCS ${SOURCES}
+                    INCLUDE_DIRS "." "../drivers" 
+                    REQUIRES driver nvs_flash)

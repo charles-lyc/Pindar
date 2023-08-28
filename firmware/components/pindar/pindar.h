@@ -4,10 +4,11 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-#include "mcu/spi.h"
-#include "mcu/gpio_intr.h"
+#include "spi.h"
+#include "gpio_intr.h"
 
 class Pindar {
+private:
 public:
 	// on board imu bus and gpio
 	Pindar();
@@ -33,5 +34,4 @@ public:
 	// GPIO_Interface *gpio_10;
 	// GPIO_Interface *gpio_11;
 	// GPIO_Interface *gpio_12;
-private:
 };

@@ -5,14 +5,13 @@
 #include "esp_system.h"
 #include "esp_log.h"
 
-#include "pindar.h"
 #include "imu_sensor_vibr_test.h"
 
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
 	// exteral imu sensor
-	icm_42688 = new ICM42688(spi3_bus);
-	imu_module = new IMU_Module(icm_42688);
+	icm_42688_external = new ICM42688(spi3_bus);
+	imu_module = new IMU_Module(icm_42688_external);
 	// gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
 	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
