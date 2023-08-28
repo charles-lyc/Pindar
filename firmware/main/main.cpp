@@ -7,7 +7,6 @@
 #include "esp_log.h"
 #include "esp_system.h"
 
-#include "pindar.h"
 #include "imu_sensor_vibr_test.h"
 
 // main 只提供一个入口和临时环境光用来实例化具体项目app

@@ -5,7 +5,7 @@
 #include "esp_system.h"
 #include "esp_log.h"
 
-#include "imu_module.h"
+#include "imu.h"
 #include "param.h"
 
 IMU_Module::IMU_Module(IMU_Interface *itf)

@@ -6,15 +6,15 @@
 
 #include "driver/gpio.h"
 
-class GPIO
+class GPIO_Normal
 {
 private:
 
 public:
-    GPIO(gpio_num_t gpio_num, gpio_isr_t isr, void *arg)
+    GPIO_Normal(gpio_num_t gpio_num)
     {
     }
-    ~GPIO()
+    ~GPIO_Normal()
     {
     }
 };
@@ -24,10 +24,10 @@ class GPIO_PWM
 private:
 
 public:
-    GPIO(gpio_num_t gpio_num, gpio_isr_t isr, void *arg)
+    GPIO_PWM(gpio_num_t gpio_num)
     {
     }
-    ~GPIO()
+    ~GPIO_PWM()
     {
     }
 };
