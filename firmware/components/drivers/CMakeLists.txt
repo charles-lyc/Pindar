@@ -1,3 +1,4 @@
-idf_component_register(SRCS "icm42688.cpp"
-                    INCLUDE_DIRS "." "../mcu"
-                    REQUIRES )
+file(GLOB_RECURSE SOURCES *.c *.cpp)
+idf_component_register(SRCS ${SOURCES}
+                    INCLUDE_DIRS "."
+                    REQUIRES pindar)
