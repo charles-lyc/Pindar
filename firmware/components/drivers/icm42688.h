@@ -11,10 +11,10 @@
 
 class ICM42688 : public IMU_Interface {
 private:
-	SPI_Interface *interface = nullptr;
+	SPI_Bus *interface = nullptr;
 
 public:
-	ICM42688(SPI_Interface *spi_interface);
+	ICM42688(SPI_Bus *SPI_Bus);
 	~ICM42688();
 
 	int probe()override;
