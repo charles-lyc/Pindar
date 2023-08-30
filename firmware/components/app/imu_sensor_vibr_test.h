@@ -20,10 +20,10 @@ private:
     struct DataPack{
         uint8_t header;
         uint32_t timestamp;
-        int16_t gyro_raw[3];
-        int16_t accel_raw[3];
+        int32_t gyro_raw[3];
+        int32_t accel_raw[3];
         int16_t temp;
-        uint8_t crc;
+        uint16_t crc;
     } datapack;
 
     ICM42688 *icm_42688_external;
