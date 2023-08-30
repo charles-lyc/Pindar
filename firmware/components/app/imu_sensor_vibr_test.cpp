@@ -17,6 +17,8 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
 	// dc_module = new DC_Motor_Module(dc_motor);
 
+	serial = new SerialPort(uart1, 115200);
+
 	// xTaskCreate(process_task_static, "scan_task", 4096, this, 5, NULL);
 	xTaskCreate(upload_task_static, "upload_task", 4096, this, 5, NULL);
 
