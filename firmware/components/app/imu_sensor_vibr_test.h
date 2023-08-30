@@ -11,6 +11,7 @@
 #include "icm42688.h"
 
 #include "imu.h"
+#include "serial.h"
 #include "cpu_monitor.h"
 
 
@@ -30,7 +31,7 @@ private:
     // IMU_Module *imu_module;
     // DC_Motor *dc_motor;
     // DC_Motor_Module *dc_motor_module;
-    SerialPort *serial;
+    Serial *serial;
 
     void upload_task(void *pvParameters);
     static void upload_task_static(void *pvParameters){

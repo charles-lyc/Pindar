@@ -8,13 +8,13 @@ private:
     UART *uart_handle;
 
 public:
-    Serial::Serial(UART *uart, int baudrate)
+    Serial(UART *uart, int baudrate)
     {
         uart_handle = uart;
-        uart_handle.set_baudrate(baudrate);
+        // uart_handle.set_baudrate(baudrate);
     }
 
-    Serial::~Serial()
+    ~Serial()
     {
     }
 

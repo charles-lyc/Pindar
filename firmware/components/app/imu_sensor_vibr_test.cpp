@@ -17,7 +17,7 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
 	// dc_module = new DC_Motor_Module(dc_motor);
 
-	serial = new SerialPort(uart1, 115200);
+	serial = new Serial(uart1, 115200);
 
 	// xTaskCreate(process_task_static, "scan_task", 4096, this, 5, NULL);
 	xTaskCreate(upload_task_static, "upload_task", 4096, this, 5, NULL);
@@ -42,24 +42,24 @@ void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 		// memcpy(buffer.data(), &datapack, sizeof(datapack));
 		// std::cout << buffer << std::endl;
 
-		std::vector<int16_t> values{ 1, 2, 3, 4, 5, 6, 7 };
-		uint16_t crc = 0xffff;
+		// std::vector<int16_t> values{ 1, 2, 3, 4, 5, 6, 7 };
+		// uint16_t crc = 0xffff;
 
-		std::vector<uint8_t> data{ 0xaa, 0xaa };
-		data.push_back(static_cast<uint8_t>(datapack.timestamp & 0xff));
-		data.push_back(static_cast<uint8_t>((datapack.timestamp >> 8) & 0xff));
-		data.push_back(static_cast<uint8_t>((datapack.timestamp >> 16) & 0xff));
-		data.push_back(static_cast<uint8_t>((datapack.timestamp >> 24) & 0xff));
-		for (auto value : values) {
-			data.push_back(static_cast<uint8_t>(value & 0xff));
-			data.push_back(static_cast<uint8_t>((value >> 8) & 0xff));
-		}
-		data.push_back(static_cast<uint8_t>(crc & 0xff));
-		data.push_back(static_cast<uint8_t>((crc >> 8) & 0xff));
+		// std::vector<uint8_t> data{ 0xaa, 0xaa };
+		// data.push_back(static_cast<uint8_t>(datapack.timestamp & 0xff));
+		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 8) & 0xff));
+		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 16) & 0xff));
+		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 24) & 0xff));
+		// for (auto value : values) {
+		// 	data.push_back(static_cast<uint8_t>(value & 0xff));
+		// 	data.push_back(static_cast<uint8_t>((value >> 8) & 0xff));
+		// }
+		// data.push_back(static_cast<uint8_t>(crc & 0xff));
+		// data.push_back(static_cast<uint8_t>((crc >> 8) & 0xff));
 
-		for (auto byte : data) {
-			std::cout << std::hex << static_cast<int>(byte);
-		}
+		// for (auto byte : data) {
+		// 	std::cout << std::hex << static_cast<int>(byte);
+		// }
 
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}

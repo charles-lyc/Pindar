@@ -58,9 +58,9 @@ static uint8_t reg_table[] = {
 	//{ACCEL_CONFIG1}
 };
 
-ICM42688::ICM42688(SPI_Bus *SPI_Bus)
+ICM42688::ICM42688(Bus *bushw)
 {
-	interface = SPI_Bus;
+	bus = bushw;
 
 	// config spi bus mode, baudrate .etc
 
@@ -68,7 +68,7 @@ ICM42688::ICM42688(SPI_Bus *SPI_Bus)
 
 ICM42688::~ICM42688()
 {
-	interface = nullptr;
+	bus = nullptr;
 }
 
 int ICM42688::probe()
@@ -78,7 +78,7 @@ int ICM42688::probe()
 
 	// probe
 	tx[0] = WHO_AM_I;
-	interface->bus_transfer_polling(SPI_Bus::READ, tx, rx, 2);
+	bus->transfer(Bus::Read, tx, 1, rx, 2);
 	if (rx[1] != 0x47) {
 		ESP_LOGE("ICM42688", "probe fail");
 		return -1;
@@ -99,13 +99,13 @@ int ICM42688::initialize()
 	for (int i = 0; i < sizeof(reg_table) / 2; i++) {
 		tx[0] = *p_table++;
 		tx[1] = *p_table++;
-		interface->bus_transfer_polling(SPI_Bus::WRITE, tx, rx, 2);
+		bus->transfer(Bus::Write, tx, 2, rx, 2);
 		vTaskDelay(1 / portTICK_PERIOD_MS);
 	}
 	// p_table = reg_table;
 	// for (int i = 0; i < sizeof(reg_table) / 2; i++) {
 	//  tx[0] = *p_table++;
-	//  interface->bus_transfer_polling(SPI_Bus::READ, tx, rx, 2);
+	//  bus->transfer(Bus::READ, tx, rx, 2);
 	//  ESP_LOGI("ICM42688", "rx %x %x", rx[ 0], rx[ 1]);
 	//  if (rx[1] != *p_table++) {
 	//      ESP_LOGE("ICM42688", "config fail");
@@ -124,7 +124,7 @@ int ICM42688::read_raw_data(int32_t *gyro, int32_t *accel, int16_t *temp)
 	uint8_t rx[14] = {0};
 
 	tx[0] = TEMP_DATA1;
-	interface->bus_transfer_polling(SPI_Bus::READ, tx, rx, 14);
+	bus->transfer(Bus::Read, tx, 1, rx, 14);
 
 	temp[0] = (int16_t)rx[1] << 8 | rx[0];
 

@@ -6,8 +6,9 @@
 
 #include "driver/gpio.h"
 #include "driver/spi_master.h"
+#include "mcu/bus.h"
 
-class SPI_Bus {
+class SPI_Bus : public Bus {
 private:
 	spi_device_handle_t handle;
 
@@ -71,7 +72,7 @@ public:
 		// spi_bus_free(host_id);
 	}
 
-	int bus_transfer_polling(bool rw, uint8_t *tx_data, uint8_t *rx_data, size_t len)
+	int transfer_polling(enum mode rw, uint8_t *tx_data, size_t txlen, uint8_t *rx_data, size_t rxlen, TickType_t ticks_to_wait = portMAX_DELAY) override
 	{
 		esp_err_t ret;
 		spi_transaction_t t = {
@@ -83,13 +84,17 @@ public:
 			.rx_buffer = rx_data,
 		};
 
-		if (rw == READ) {
+		if (rw == Read) {
+			for (size_t i = 0; i < txlen; i++) {
+				tx_data[i] = tx_data[i];
+			}
 			tx_data[0] |= 0x80;
-			t.length = 8 * len;
-			t.rxlength = 8 * len;
+
+			t.length = 8 * rxlen;
+			t.rxlength = 8 * rxlen;
 		}
 		else {
-			t.length = 8 * len;
+			t.length = 8 * txlen;
 			t.rxlength = 0;
 		}
 

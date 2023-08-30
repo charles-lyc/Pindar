@@ -6,15 +6,16 @@
 #include "freertos/task.h"
 #include "freertos/semphr.h"
 
-#include "spi.h"
+#include "mcu/spi.h"
 #include "imu_sensor_interface.h"
+#include "bus.h"
 
 class ICM42688 : public IMU_Interface {
 private:
-	SPI_Bus *interface = nullptr;
+	Bus *bus = nullptr;
 
 public:
-	ICM42688(SPI_Bus *SPI_Bus);
+	ICM42688(Bus *bushw);
 	~ICM42688();
 
 	int probe()override;
