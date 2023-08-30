@@ -7,6 +7,7 @@
 #include "mcu/spi.h"
 #include "mcu/gpio.h"
 #include "mcu/uart.h"
+#include "mcu/i2c.h"
 
 class Pindar {
 private:
@@ -17,7 +18,7 @@ public:
 
 	UART *uart1 = nullptr;
 	UART *uart2 = nullptr;
-	// I2C_Bus *i2c_bus = nullptr;
+	I2C_Bus *i2c_bus = nullptr;
 	SPI_Bus *spi2_bus = nullptr;
 	SPI_Bus *spi3_bus = nullptr;
 

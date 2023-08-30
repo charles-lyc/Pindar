@@ -9,14 +9,72 @@
 class GPIO_Normal
 {
 private:
+    enum GPIO_TYPE{
+        DISABLE=0,
+        ANOLOG_INPUT,
+        ANOLOG_OUTPUT,
+        DIGTAL_INPUT,
+        DIGTAL_OUTPUT,
+        DIGTAL_OD,
+    };
+
+    gpio_num_t gpio_num = -1;
 
 public:
-    GPIO_Normal(gpio_num_t gpio_num)
+    GPIO_Normal(gpio_num_t io, enum GPIO_TYPE type)
     {
+        gpio_config_t io_conf = {
+            .intr_type = GPIO_INTR_DISABLE,
+            .mode = GPIO_MODE_DISABLE,
+            .pin_bit_mask = GPIO_OUTPUT_PIN_SEL,
+            .pull_down_en = 0,
+            .pull_up_en = 0,
+        };
+
+        switch (type)
+        {
+        case DISABLE:
+        io_conf.intr_type = GPIO_INTR_DISABLE;
+        break;
+        case ANOLOG_INPUT:
+        io_conf.intr_type = GPIO_MODE_INPUT;
+        break;
+        case ANOLOG_OUTPUT:
+        io_conf.intr_type = GPIO_MODE_OUTPUT;
+        break;
+        case DIGTAL_INPUT:
+        io_conf.intr_type = GPIO_MODE_INPUT;
+        break;
+        case DIGTAL_OUTPUT:
+        io_conf.intr_type = GPIO_MODE_OUTPUT;
+        break;
+        case DIGTAL_OD:
+        io_conf.intr_type = GPIO_MODE_INPUT_OUTPUT_OD;
+        break;
+        default:
+        io_conf.intr_type = GPIO_INTR_DISABLE;
+
+        }
+
+        gpio_config(&io_conf);   
+
+
     }
     ~GPIO_Normal()
     {
     }
+
+    int set(uint32_t level)
+    {
+      return  gpio_set_level(gpio_num, level);
+    }
+
+    int get(uint32_t level)
+    {
+return         gpio_set_level(gpio_num);
+
+    }
+
 };
 
 class GPIO_PWM
