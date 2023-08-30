@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "ADIS16460")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/Pindar/hardware/kicad/reference/footprint/ADIS16460")(options "")(descr ""))
+  (lib (name "JST-GH-1.25")(type "KiCad")(uri "C:/Users/Lenovo/Desktop/tmp/Pindar/hardware/kicad/reference/footprint/JST-GH-1.25")(options "")(descr ""))
+)

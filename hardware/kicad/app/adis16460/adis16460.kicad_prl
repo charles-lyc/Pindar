@@ -64,17 +64,17 @@
       39,
       40
     ],
-    "visible_layers": "ffcffff_ffffffff",
+    "visible_layers": "ffdffff_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "pmw3360.kicad_prl",
+    "filename": "adis16460.kicad_prl",
     "version": 3
   },
   "project": {
     "files": [
       {
-        "name": "pmw3360.kicad_sch",
+        "name": "adis16460.kicad_sch",
         "open": false,
         "window": {
           "display": 0,
@@ -86,15 +86,15 @@
         }
       },
       {
-        "name": "pmw3360.kicad_pcb",
-        "open": true,
+        "name": "adis16460.kicad_pcb",
+        "open": false,
         "window": {
-          "display": 1,
+          "display": 0,
           "maximized": true,
-          "pos_x": 2552,
-          "pos_y": -8,
-          "size_x": 2576,
-          "size_y": 1408
+          "pos_x": -11,
+          "pos_y": -11,
+          "size_x": 2582,
+          "size_y": 1550
         }
       }
     ]

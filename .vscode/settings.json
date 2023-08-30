@@ -1,0 +1,7 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "files.associations": {
+    "pindar_config.h": "c"
+  },
+  "cmake.sourceDirectory": "C:/Users/Lenovo/Desktop/tmp/Pindar/firmware"
+}

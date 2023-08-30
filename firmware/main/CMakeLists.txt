@@ -1,3 +1,4 @@
-idf_component_register(SRCS "main.cpp"
-                    "icm42688.c"
-                    INCLUDE_DIRS ".")
+file(GLOB_RECURSE SOURCES *.cpp)
+idf_component_register(SRCS ${SOURCES}
+                    INCLUDE_DIRS "." 
+                    REQUIRES app)
