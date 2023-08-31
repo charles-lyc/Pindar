@@ -14,8 +14,9 @@
 #include "serial.h"
 #include "cpu_monitor.h"
 
+#include "dc_motor_4wd.h"
 
-class IMU_Sensor_Vibr_Test : public Pindar
+class IMU_Sensor_Vibr_Test : public Pindar, public DC_Motor_4WD
 {
 private:
     struct DataPack{
@@ -29,9 +30,6 @@ private:
 
     ICM42688 *icm_42688_external;
     // IMU_Module *imu_module;
-    // DC_Motor *dc_motor;
-    // DC_Motor_Module *dc_motor_module;
-    Serial *serial;
 
     void upload_task(void *pvParameters);
     static void upload_task_static(void *pvParameters){

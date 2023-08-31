@@ -33,13 +33,14 @@ public:
     };
     ~UART();
 
+    int write(const void *src, size_t size)
+    {
+        return uart_write_bytes(uart_id, src, size);
+    };
+    
     int read(void *src, size_t size, TickType_t ticks_to_wait)
     {
         return uart_read_bytes(uart_id, src, size, ticks_to_wait);
     };
 
-    int write(const void *src, size_t size)
-    {
-        return uart_write_bytes(uart_id, src, size);
-    };
 };
