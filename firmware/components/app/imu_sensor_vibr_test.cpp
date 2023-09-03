@@ -7,6 +7,7 @@
 
 #include "imu_sensor_vibr_test.h"
 
+
 IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
 	// exteral imu sensor
@@ -14,8 +15,10 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 	// imu_module = new IMU_Module(icm_42688_external);
 	// gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
-	// dc_motor = new DC_Motor_Driver(gpio_1, gpio_2);
-	// dc_module = new DC_Motor_Module(dc_motor);
+	pwmin = new PWM_Input(PINDAR_GPIO_9);
+	pwmout = new PWM_Output(PINDAR_GPIO_1, 200);
+	gpio_2 = new GPIO_Normal(PINDAR_GPIO_2, GPIO_Normal::DIGTAL_INnOUTPUT);
+
 
 	// xTaskCreate(process_task_static, "scan_task", 4096, this, 5, NULL);
 	xTaskCreate(upload_task_static, "upload_task", 4096, this, 5, NULL);
@@ -29,6 +32,8 @@ IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 
 void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 {
+	pwmout->set_duty_cycle(0.5);
+
 	while (true) {
 
 		icm_42688_external->read_raw_data(datapack.gyro_raw, datapack.accel_raw, &datapack.temp);
@@ -49,15 +54,20 @@ void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 16) & 0xff));
 		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 24) & 0xff));
 		// for (auto value : values) {
-		// 	data.push_back(static_cast<uint8_t>(value & 0xff));
-		// 	data.push_back(static_cast<uint8_t>((value >> 8) & 0xff));
+		//  data.push_back(static_cast<uint8_t>(value & 0xff));
+		//  data.push_back(static_cast<uint8_t>((value >> 8) & 0xff));
 		// }
 		// data.push_back(static_cast<uint8_t>(crc & 0xff));
 		// data.push_back(static_cast<uint8_t>((crc >> 8) & 0xff));
 
 		// for (auto byte : data) {
-		// 	std::cout << std::hex << static_cast<int>(byte);
+		//  std::cout << std::hex << static_cast<int>(byte);
 		// }
+
+		gpio_2->toggle();
+		ESP_LOGI("IMU_Sensor_Vibr_Test", "gpio_2: %d", gpio_2->get());
+
+		// ESP_LOGI("IMU_Sensor_Vibr_Test", "pwm in count: %d", pwmin->get_count());
 
 		vTaskDelay(1000 / portTICK_PERIOD_MS);
 	}

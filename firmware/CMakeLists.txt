@@ -2,6 +2,7 @@
 # in this exact order for cmake to work correctly
 cmake_minimum_required(VERSION 3.5)
 add_compile_options(-fdiagnostics-color=always)
+add_compile_options(-Wno-uninitialized)
 
 set(EXTRA_COMPONENT_DIRS ${CMAKE_SOURCE_DIR}/components/pindar
                         ${CMAKE_SOURCE_DIR}/components/drivers

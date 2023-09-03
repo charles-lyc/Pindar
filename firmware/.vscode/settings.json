@@ -7,7 +7,7 @@
     "files.associations": {
         "string.h": "c",
         "spi_master.h": "c",
-        "imu_sensor_interface.h": "c",
+        "imu_interface.h": "c",
         "semphr.h": "c",
         "sdkconfig.h": "c",
         "freertos.h": "c",
@@ -78,5 +78,6 @@
         "*.inc": "cpp"
     },
     "idf.flashType": "UART",
-    "idf.portWin": "COM5"
+    "idf.portWin": "COM5",
+    "codeium.enableCodeLens": false
 }

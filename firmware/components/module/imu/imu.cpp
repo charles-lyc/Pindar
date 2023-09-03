@@ -8,7 +8,7 @@
 #include "imu.h"
 #include "param.h"
 
-IMU_Module::IMU_Module(IMU_Interface *itf)
+IMU_Module::IMU_Module(imu_sensor_base *itf)
 {
 	interface = itf;
 
@@ -26,7 +26,7 @@ IMU_Module::IMU_Module(IMU_Interface *itf)
 
 	// Note: 正在尝试直接将成员函数作为任务函数传递，而成员函数具有额外的隐式参数（即 this 指针），导致类型不匹配。这里的process_task方法是一个非静态成员函数，而非静态成员函数在调用时需要通过一个实例来访问
 	// 方法一：使用静态中间函数并传递实例，这里其实是强行利用了xTaskCreate()可以给task带参这个设定，把实例当作参数传递进去
-	xTaskCreate(&IMU_Module::process_task_static, "process_task", 4096, this, 3, &process_task_handle);
+	xTaskCreate(&process_task_static, "process_task", 4096, this, 3, &process_task_handle);
 	// 方法二：使用std::bind
 	// 方法三：lambda表达式（类似方法一）
 	// xTaskCreate(CALLBACK_LAMBDA_VOID(IMU_Module, process_task), "process_task", 4096, this, 3, &process_task_handle);

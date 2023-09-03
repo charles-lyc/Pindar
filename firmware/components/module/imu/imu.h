@@ -6,7 +6,7 @@
 #include "freertos/task.h"
 #include "freertos/queue.h"
 
-#include "imu_sensor_interface.h"
+#include "drivers/imu_sensor/imu_sensor_base.h"
 
 struct quaternion {
 	float w;
@@ -60,7 +60,7 @@ private:
 
 	QueueHandle_t data_queue;
 
-	IMU_Interface *interface = nullptr;
+	imu_sensor_base *interface = nullptr;
 	// struct SM_ImuData *sm = nullptr;       // 共享内存通信（进程间通信，暂时不需要）
 
 	void pre_process();
@@ -97,7 +97,7 @@ private:
 	void aceel_sphere_calibr_task(void *pvParameters);
 
 public:
-	IMU_Module(IMU_Interface *itf);
+	IMU_Module(imu_sensor_base *itf);
 	~IMU_Module();
 
 	TickType_t get_timestamp()

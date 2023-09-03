@@ -72,19 +72,6 @@
     "version": 3
   },
   "project": {
-    "files": [
-      {
-        "name": "esp32 s3.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 0,
-          "maximized": true,
-          "pos_x": -11,
-          "pos_y": -11,
-          "size_x": 2582,
-          "size_y": 1550
-        }
-      }
-    ]
+    "files": []
   }
 }

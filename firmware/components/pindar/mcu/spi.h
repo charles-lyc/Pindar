@@ -8,7 +8,7 @@
 #include "driver/spi_master.h"
 #include "mcu/bus.h"
 
-class SPI_Bus : public Bus {
+class SPI_Bus : public Bus_Base {
 private:
 	spi_device_handle_t handle;
 
@@ -72,7 +72,7 @@ public:
 		// spi_bus_free(host_id);
 	}
 
-	int transfer_polling(enum mode rw, uint8_t *tx_data, size_t txlen, uint8_t *rx_data, size_t rxlen, TickType_t ticks_to_wait = portMAX_DELAY) override
+	int transfer(enum mode rw, uint8_t *tx_data, size_t txlen, uint8_t *rx_data, size_t rxlen, TickType_t ticks_to_wait = portMAX_DELAY) override
 	{
 		esp_err_t ret;
 		spi_transaction_t t = {

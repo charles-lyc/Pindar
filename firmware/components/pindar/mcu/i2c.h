@@ -6,7 +6,7 @@
 #include "mcu/bus.h"
 #include "driver/i2c.h"
 
-class I2C_Bus : public Bus {
+class I2C_Bus : public Bus_Base {
 private:
 	i2c_port_t i2c_port;
 	uint8_t device_addr;

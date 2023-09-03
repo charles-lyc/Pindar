@@ -11,10 +11,10 @@
 #include "esp_system.h"
 #include "esp_log.h"
 
-class IMU_Interface
+class imu_sensor_base
 {
 public:
-    virtual ~IMU_Interface() {} // 确保能调用派生类的析构，又不至于在没有派生析构时没有析构函数导致奔溃
+    virtual ~imu_sensor_base() {} // 确保能调用派生类的析构，又不至于在没有派生析构时没有析构函数导致奔溃
 
     virtual int probe() { return -1; }
     virtual int initialize() { return -1; }

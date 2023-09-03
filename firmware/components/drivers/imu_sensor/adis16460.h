@@ -7,16 +7,16 @@
 #include "freertos/semphr.h"
 
 #include "mcu/spi.h"
-#include "imu_sensor_interface.h"
+#include "imu_sensor_base.h"
 #include "bus.h"
 
-class ICM42688 : public IMU_Interface {
+class ADIS16460 : public imu_sensor_base {
 private:
-	Bus *bus = nullptr;
+	Bus_Base *bus = nullptr;
 
 public:
-	ICM42688(Bus *bushw);
-	~ICM42688();
+	ADIS16460(Bus_Base *bushw);
+	~ADIS16460();
 
 	int probe()override;
 	int initialize() override;

@@ -17,13 +17,12 @@ public:
 		ANOLOG_OUTPUT,
 		DIGTAL_INPUT,
 		DIGTAL_OUTPUT,
+		DIGTAL_INnOUTPUT,
 		DIGTAL_OD,
 	};
 
-	GPIO_Normal(gpio_num_t io, enum GPIO_TYPE type)
+	GPIO_Normal(gpio_num_t io, enum GPIO_TYPE type): gpio_num(io)
 	{
-		gpio_num = io;
-
 		gpio_config_t io_conf = {
 			.pin_bit_mask = BIT64(io),
 			.mode = GPIO_MODE_DISABLE,
@@ -48,6 +47,9 @@ public:
 			case DIGTAL_OUTPUT:
 				io_conf.mode = GPIO_MODE_OUTPUT;
 				break;
+			case DIGTAL_INnOUTPUT:
+				io_conf.mode = GPIO_MODE_INPUT_OUTPUT;
+				break;
 			case DIGTAL_OD:
 				io_conf.mode = GPIO_MODE_INPUT_OUTPUT_OD;
 				break;
@@ -56,8 +58,6 @@ public:
 		}
 
 		gpio_config(&io_conf);
-
-
 	}
 	~GPIO_Normal()
 	{
@@ -68,11 +68,16 @@ public:
 		return  gpio_set_level(gpio_num, level);
 	}
 
-	int get(uint32_t level)
+	int get()
 	{
 		return gpio_get_level(gpio_num);
 	}
 
+	int toggle()
+	{
+		int level = gpio_get_level(gpio_num);
+		return  gpio_set_level(gpio_num, level ? 0 : 1);
+	}
 };
 
 class GPIO_PWM {
