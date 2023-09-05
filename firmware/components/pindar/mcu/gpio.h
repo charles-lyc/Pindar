@@ -21,7 +21,7 @@ public:
 		DIGTAL_OD,
 	};
 
-	GPIO_Normal(gpio_num_t io, enum GPIO_TYPE type): gpio_num(io)
+	GPIO_Normal(gpio_num_t io, enum GPIO_TYPE type, uint32_t  level): gpio_num(io)
 	{
 		gpio_config_t io_conf = {
 			.pin_bit_mask = BIT64(io),
@@ -58,6 +58,8 @@ public:
 		}
 
 		gpio_config(&io_conf);
+		gpio_set_level(gpio_num, level);
+
 	}
 	~GPIO_Normal()
 	{

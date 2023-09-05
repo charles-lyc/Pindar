@@ -16,11 +16,11 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 	// gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
 	pwmin = new PWM_Input(PINDAR_GPIO_9);
-	pwmout = new PWM_Output(PINDAR_GPIO_1, 200);
-	gpio_2 = new GPIO_Normal(PINDAR_GPIO_2, GPIO_Normal::DIGTAL_INnOUTPUT);
+	pwmout = new PWM_Output(PINDAR_GPIO_1, 200, 0.5);
+	gpio_2 = new GPIO_Normal(PINDAR_GPIO_2, GPIO_Normal::DIGTAL_INnOUTPUT, 0);
 
 
-	// xTaskCreate(process_task_static, "scan_task", 4096, this, 5, NULL);
+	xTaskCreate(process_task_static, "scan_task", 4096, this, 5, NULL);
 	xTaskCreate(upload_task_static, "upload_task", 4096, this, 5, NULL);
 
 	// CPU_Monitor::get_instance()->start();
@@ -32,59 +32,61 @@ IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 
 void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 {
-	pwmout->set_duty_cycle(0.5);
-
 	while (true) {
 
+		datapack.header = 0xAA;
 		icm_42688_external->read_raw_data(datapack.gyro_raw, datapack.accel_raw, &datapack.temp);
+		datapack.timestamp = xTaskGetTickCount();
+		datapack.crc = crc16((const uint8_t *)&datapack, sizeof(datapack) - 2);
 
-		// datapack.header = 0xAA;
-		// datapack.timestamp = xTaskGetTickCount();
-		// // datapack.crc = crc();
-		// std::array<uint8_t, sizeof(datapack)> buffer;
-		// memcpy(buffer.data(), &datapack, sizeof(datapack));
-		// std::cout << buffer << std::endl;
+		// std::cout << "datapack sensor: " <<datapack.gyro_raw[0] << " " << datapack.gyro_raw[1] << " " << datapack.gyro_raw[2] << " " <<
+		//           datapack.accel_raw[0] << " " << datapack.accel_raw[1] << " " << datapack.accel_raw[2] << " " <<
+		//           datapack.temp << std::endl;
 
-		// std::vector<int16_t> values{ 1, 2, 3, 4, 5, 6, 7 };
-		// uint16_t crc = 0xffff;
+		uart1->write((const uint8_t *)&datapack, sizeof(datapack));
 
-		// std::vector<uint8_t> data{ 0xaa, 0xaa };
-		// data.push_back(static_cast<uint8_t>(datapack.timestamp & 0xff));
-		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 8) & 0xff));
-		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 16) & 0xff));
-		// data.push_back(static_cast<uint8_t>((datapack.timestamp >> 24) & 0xff));
-		// for (auto value : values) {
-		//  data.push_back(static_cast<uint8_t>(value & 0xff));
-		//  data.push_back(static_cast<uint8_t>((value >> 8) & 0xff));
-		// }
-		// data.push_back(static_cast<uint8_t>(crc & 0xff));
-		// data.push_back(static_cast<uint8_t>((crc >> 8) & 0xff));
-
-		// for (auto byte : data) {
-		//  std::cout << std::hex << static_cast<int>(byte);
-		// }
-
-		gpio_2->toggle();
-		ESP_LOGI("IMU_Sensor_Vibr_Test", "gpio_2: %d", gpio_2->get());
-
-		// ESP_LOGI("IMU_Sensor_Vibr_Test", "pwm in count: %d", pwmin->get_count());
-
-		vTaskDelay(1000 / portTICK_PERIOD_MS);
+		vTaskDelay(pdMS_TO_TICKS(10));
 	}
+}
+
+uint16_t IMU_Sensor_Vibr_Test::crc16(const uint8_t *data, size_t length)
+{
+	uint8_t x;
+	uint16_t crc = 0xFFFF;
+
+	while (length--) {
+		x = crc >> 8 ^ *data++;
+		x ^= x >> 4;
+		crc = (crc << 8) ^ ((uint16_t)(x << 12)) ^ ((uint16_t)(x << 5)) ^ ((uint16_t)x);
+	}
+	return crc;
 }
 
 // 仅需上位机调整扫频频率
 void IMU_Sensor_Vibr_Test::process_task(void *pvParameters)
 {
 	// dc_module.set_duty_cycle(0.5);
+	uint32_t freq = 200;
+	TickType_t xLastWakeTime;
+	const TickType_t period = pdMS_TO_TICKS(10);
+	BaseType_t xWasDelayed;
+
+	xLastWakeTime = xTaskGetTickCount();
 
 	while (true) {
 
 		// if (serial.receive(buffer, sizeof(buffer), portMAX_DELAY)) {
 
-		// dc_module.set_frequency(freq);
+		pwmout->set_freq_hz(freq);
+		if (freq++ > 1000) {
+			freq = 200;
+		}
 
-		// }
+		// Wait for the next cycle.
+		xWasDelayed = xTaskDelayUntil(&xLastWakeTime, period);
+		// Perform action here. xWasDelayed value can be used to determine
+		// whether a deadline was missed if the code here took too long.
+
 	}
 }
 

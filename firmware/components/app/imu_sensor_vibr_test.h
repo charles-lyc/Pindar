@@ -22,6 +22,9 @@
 #include "pindar/dc_motor_4wd.h"
 
 class IMU_Sensor_Vibr_Test : public Pindar {
+
+private:
+#pragma pack(push, 1)
 	struct DataPack {
 		uint8_t header;
 		uint32_t timestamp;
@@ -30,13 +33,15 @@ class IMU_Sensor_Vibr_Test : public Pindar {
 		int16_t temp;
 		uint16_t crc;
 	} datapack;
+#pragma pack(pop)
 
-private:
 	ICM42688 *icm_42688_external;
 	// PulseGen *pulse_gen;
 	PWM_Output *pwmout;
 	PWM_Input *pwmin;
 	GPIO_Normal *gpio_2;
+
+	uint16_t crc16(const uint8_t *data, size_t length);
 
 	void upload_task(void *pvParameters);
 	static void upload_task_static(void *pvParameters)

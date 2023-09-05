@@ -80,27 +80,25 @@ private:
 	uint32_t full_scale = (1 << 10) - 1;
 
 public:
-	PWM_Output(int io, uint32_t freq_hz)
+	PWM_Output(int io, uint32_t freq_hz = 0, float duty = 0)
 	{
 		// use ledc to generate pwm
-		// Prepare and then apply the LEDC PWM timer configuration
 		ledc_timer_config_t ledc_timer = {
 			.speed_mode       = LEDC_LOW_SPEED_MODE,
 			.duty_resolution  = LEDC_TIMER_10_BIT,
 			.timer_num        = timer_num,
-			.freq_hz          = 200,
+			.freq_hz          = freq_hz,
 			.clk_cfg          = LEDC_AUTO_CLK
 		};
-		ESP_ERROR_CHECK(ledc_timer_config(&ledc_timer));
+		ledc_timer_config(&ledc_timer);
 
-		// Prepare and then apply the LEDC PWM channel configuration
 		ledc_channel_config_t ledc_channel = {
 			.gpio_num       = io,
 			.speed_mode     = LEDC_LOW_SPEED_MODE,
 			.channel        = channel,
 			.intr_type      = LEDC_INTR_DISABLE,
 			.timer_sel      = timer_num,
-			.duty           = 0, // Set duty to 0%
+			.duty           = (uint32_t)(duty * full_scale),
 			.hpoint         = 0
 		};
 		ledc_channel_config(&ledc_channel);
@@ -125,6 +123,8 @@ public:
 	void set_freq_hz(uint32_t freq_hz)
 	{
 		ledc_set_freq(LEDC_LOW_SPEED_MODE, timer_num, freq_hz);
+		// ESP_LOGI("PWM_Output", "freq_hz: %d", (int)ledc_get_freq(LEDC_LOW_SPEED_MODE, timer_num));
+		// ledc_update_duty(LEDC_LOW_SPEED_MODE, channel);
 	}
 
 	// duty: 0 ~ 1000

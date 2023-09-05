@@ -84,6 +84,18 @@
           "size_x": 2582,
           "size_y": 1550
         }
+      },
+      {
+        "name": "dc_motor.kicad_pcb",
+        "open": false,
+        "window": {
+          "display": 1,
+          "maximized": true,
+          "pos_x": 2552,
+          "pos_y": -8,
+          "size_x": 2576,
+          "size_y": 1408
+        }
       }
     ]
   }
