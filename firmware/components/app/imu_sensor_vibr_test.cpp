@@ -12,7 +12,7 @@ IMU_Sensor_Vibr_Test::IMU_Sensor_Vibr_Test()
 {
 	// exteral imu sensor
 	icm_42688_external = new ICM42688(spi3_bus);
-	// imu_module = new IMU_Module(icm_42688_external);
+	imu_module = new IMU_Module(icm_42688_external);    // just for initialize
 	// gpio_imu->set_callback(&imu_module->frame_event_isr_static, &imu_module);
 
 	pwmin = new PWM_Input(PINDAR_GPIO_9);
@@ -32,6 +32,12 @@ IMU_Sensor_Vibr_Test::~IMU_Sensor_Vibr_Test()
 
 void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 {
+	TickType_t xLastWakeTime;
+	const TickType_t period = pdMS_TO_TICKS(1);
+	BaseType_t xWasDelayed;
+
+	xLastWakeTime = xTaskGetTickCount();
+
 	while (true) {
 
 		datapack.header = 0xAA;
@@ -45,7 +51,7 @@ void IMU_Sensor_Vibr_Test::upload_task(void *pvParameters)
 
 		uart1->write((const uint8_t *)&datapack, sizeof(datapack));
 
-		vTaskDelay(pdMS_TO_TICKS(10));
+		xWasDelayed = xTaskDelayUntil(&xLastWakeTime, period);
 	}
 }
 

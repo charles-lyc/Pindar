@@ -79,23 +79,23 @@ public:
 			.flags = 0,
 			.cmd = 0,
 			.addr = 0,
+			.length = 0,
+			.rxlength = 0,
 			.user = nullptr,
 			.tx_buffer = tx_data,
 			.rx_buffer = rx_data,
 		};
 
 		if (rw == Read) {
-			for (size_t i = 0; i < txlen; i++) {
-				tx_data[i] = tx_data[i];
-			}
+
 			tx_data[0] |= 0x80;
 
-			t.length = 8 * rxlen;
+			t.length = 8 * (txlen > rxlen ? txlen : rxlen);
 			t.rxlength = 8 * rxlen;
 		}
 		else {
 			t.length = 8 * txlen;
-			t.rxlength = 0;
+			t.rxlength =  0;
 		}
 
 		ret = spi_device_polling_transmit(handle, &t);
@@ -104,3 +104,4 @@ public:
 		return 0;
 	};
 };
+

@@ -5,6 +5,7 @@
  * @version 0.1
  * @date 2023-08-06
  */
+#include <iostream>
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -73,8 +74,8 @@ ICM42688::~ICM42688()
 
 int ICM42688::probe()
 {
-	uint8_t tx[2] = {0};
-	uint8_t rx[2] = {0};
+	uint8_t tx[2] = {0xFF};
+	uint8_t rx[2] = {0x00};
 
 	// probe
 	tx[0] = WHO_AM_I;
@@ -121,10 +122,10 @@ int ICM42688::initialize()
 int ICM42688::read_raw_data(int32_t *gyro, int32_t *accel, int16_t *temp)
 {
 	uint8_t tx[14] = {0xFF};
-	uint8_t rx[14] = {0};
+	uint8_t rx[14] = {0x00};
 
 	tx[0] = TEMP_DATA1;
-	bus->transfer(Bus_Base::Read, tx, 1, rx, 14);
+	bus->transfer(Bus_Base::Read, tx, 14, rx, 14);
 
 	temp[0] = (int16_t)rx[1] << 8 | rx[0];
 

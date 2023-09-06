@@ -36,6 +36,7 @@ private:
 #pragma pack(pop)
 
 	ICM42688 *icm_42688_external;
+	IMU_Module *imu_module;
 	// PulseGen *pulse_gen;
 	PWM_Output *pwmout;
 	PWM_Input *pwmin;
