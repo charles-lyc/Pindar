@@ -1,6 +1,8 @@
 # Pindar
 电子积木
-[image](image/Snipaste_2023-06-23_09-36-22.png)
+
+![image](image/Snipaste_2023-06-23_09-36-22.png)
+
 
 # What is Pindar?
 Pindar是什么？它的取名来自中文“拼搭”，初衷是遵循易用性、便携性、可扩展性的原则而设计的一套开发套件（硬件）。
