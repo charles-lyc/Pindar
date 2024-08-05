@@ -1,7 +1,8 @@
 # Pindar
 电子积木
 
-![image](image/Snipaste_2023-06-23_09-36-22.png)
+![image](image/preview1.png)
+![image](image/preview2.png)
 
 
 # What is Pindar?
